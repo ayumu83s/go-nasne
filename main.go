@@ -11,16 +11,21 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	res, err := apiClient.Status.HDDListGet()
+	hddList, err := apiClient.Status.HDDListGet()
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("HDDListGet:%+v\n", res)
-	for _, hdd := range res.Hdd {
-		res, err := apiClient.Status.HDDInfoGet(hdd.ID)
+	fmt.Printf("HDDListGet:%+v\n", hddList)
+	for _, hdd := range hddList.Hdd {
+		hddInfo, err := apiClient.Status.HDDInfoGet(hdd.ID)
 		if err != nil {
 			panic(err)
 		}
-		fmt.Printf("HDDInfoGet:%+v\n", res)
+		fmt.Printf("HDDInfoGet:%+v\n", hddInfo)
 	}
+	titleList, err := apiClient.Recorded.TitleListGet(0, 0, 0, 1, 0, 1, 0)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("TitleListGet:%+v\n", titleList)
 }

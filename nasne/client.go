@@ -13,8 +13,9 @@ type Client struct {
 	baseURL    *url.URL
 	httpClient *http.Client
 
-	common service
-	Status *StatusService
+	common   service
+	Status   *StatusService
+	Recorded *RecordedService
 }
 
 type service struct {
@@ -44,6 +45,7 @@ func NewClient(ip string, httpClient *http.Client) (*Client, error) {
 
 	client.common.client = client
 	client.Status = (*StatusService)(&client.common)
+	client.Recorded = (*RecordedService)(&client.common)
 	return client, nil
 }
 
