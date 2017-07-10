@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ayumu83s/go-nasne-api-client/nasne"
+	"github.com/ayumu83s/go-nasne/nasne"
 )
 
 func main() {

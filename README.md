@@ -1,2 +1,2 @@
-# go-nasne-api-client
+# go-nasne
 nasne API Client for golang.
