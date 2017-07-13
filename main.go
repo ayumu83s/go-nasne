@@ -23,7 +23,10 @@ func main() {
 		}
 		fmt.Printf("HDDInfoGet:%+v\n", hddInfo)
 	}
-	titleList, err := apiClient.Recorded.TitleListGet(0, 0, 0, 1, 0, 1, 0)
+	args := &nasne.RecordedTitleListArgs{
+		RequestedCount: 1,
+	}
+	titleList, err := apiClient.Recorded.TitleListGet(args)
 	if err != nil {
 		panic(err)
 	}

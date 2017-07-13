@@ -63,23 +63,25 @@ type TitleList struct {
 	NumberReturned int
 }
 
-func (s *RecordedService) TitleListGet(
-	searchCriteria int,
-	filter int,
-	startingIndex int,
-	requestedCount int,
-	sortCriteria int,
-	withDescriptionLong int,
-	withUserData int,
-) (*TitleList, error) {
+type RecordedTitleListArgs struct {
+	SearchCriteria      int
+	Filter              int
+	StartingIndex       int
+	RequestedCount      int
+	SortCriteria        int
+	WithDescriptionLong int
+	WithUserData        int
+}
+
+func (s *RecordedService) TitleListGet(args *RecordedTitleListArgs) (*TitleList, error) {
 	values := url.Values{}
-	values.Set("searchCriteria", strconv.Itoa(searchCriteria))
-	values.Set("filter", strconv.Itoa(filter))
-	values.Set("startingIndex", strconv.Itoa(startingIndex))
-	values.Set("requestedCount", strconv.Itoa(requestedCount))
-	values.Set("sortCriteria", strconv.Itoa(sortCriteria))
-	values.Set("withDescriptionLong", strconv.Itoa(withDescriptionLong))
-	values.Set("withUserData", strconv.Itoa(withUserData))
+	values.Set("searchCriteria", strconv.Itoa(args.SearchCriteria))
+	values.Set("filter", strconv.Itoa(args.Filter))
+	values.Set("startingIndex", strconv.Itoa(args.StartingIndex))
+	values.Set("requestedCount", strconv.Itoa(args.RequestedCount))
+	values.Set("sortCriteria", strconv.Itoa(args.SortCriteria))
+	values.Set("withDescriptionLong", strconv.Itoa(args.WithDescriptionLong))
+	values.Set("withUserData", strconv.Itoa(args.WithUserData))
 
 	u := url.URL{
 		Scheme:   s.client.baseURL.Scheme,
