@@ -35,7 +35,6 @@ func (s *RecordedService) TitleListGet(ctx context.Context, args *RecordedTitleL
 		Path:     "/recorded/titleListGet",
 		RawQuery: values.Encode(),
 	}
-	fmt.Println(u.String())
 	res, err := s.client.Get(nil, u.String())
 	if err != nil {
 		return nil, err

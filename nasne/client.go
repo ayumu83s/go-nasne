@@ -54,6 +54,7 @@ func (client *Client) Request(ctx context.Context, req *http.Request) (*http.Res
 	// if ctx != nil {
 	// 	return ctxhttp.Do(ctx, client.httpClient, req)
 	// }
+	//fmt.Println(req.URL.String())
 	return client.httpClient.Do(req)
 }
 

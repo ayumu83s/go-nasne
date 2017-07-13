@@ -15,7 +15,6 @@ func (s *StatusService) HDDListGet(ctx context.Context) (*HDDList, error) {
 		Host:   fmt.Sprintf("%s:64210", s.client.baseURL.Host),
 		Path:   "/status/HDDListGet",
 	}
-	fmt.Println(u.String())
 	res, err := s.client.Get(nil, u.String())
 	if err != nil {
 		return nil, err
@@ -38,7 +37,6 @@ func (s *StatusService) HDDInfoGet(ctx context.Context, id int) (*HDDInfo, error
 		Path:     "/status/HDDInfoGet",
 		RawQuery: values.Encode(),
 	}
-	fmt.Println(u.String())
 	res, err := s.client.Get(nil, u.String())
 	if err != nil {
 		return nil, err
@@ -58,7 +56,6 @@ func (s *StatusService) RecNgListGet(ctx context.Context) (*RecNgList, error) {
 		Host:   fmt.Sprintf("%s:64210", s.client.baseURL.Host),
 		Path:   "/status/recNgListGet",
 	}
-	fmt.Println(u.String())
 	res, err := s.client.Get(nil, u.String())
 	if err != nil {
 		return nil, err
