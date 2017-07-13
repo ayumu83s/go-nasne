@@ -8,32 +8,6 @@ import (
 
 type StatusService service
 
-type Hdd struct {
-	ID              int
-	InternalFlag    int
-	MountStatus     int
-	RegisterFlag    int
-	Format          string
-	Name            string
-	VendorID        string
-	ProductID       string
-	SerialNumber    string
-	UsedVolumeSize  int
-	FreeVolumeSize  int
-	TotalVolumeSize int
-}
-
-type HDDList struct {
-	Errorcode int
-	Number    int
-	Hdd       []Hdd
-}
-
-type HDDInfo struct {
-	Errorcode int
-	Hdd       Hdd
-}
-
 func (s *StatusService) HDDListGet() (*HDDList, error) {
 	u := url.URL{
 		Scheme: s.client.baseURL.Scheme,
