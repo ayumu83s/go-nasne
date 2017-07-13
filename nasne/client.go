@@ -50,10 +50,10 @@ func NewClient(ip string, httpClient *http.Client) (*Client, error) {
 }
 
 func (client *Client) Request(ctx context.Context, req *http.Request) (*http.Response, error) {
-	if ctx != nil {
-		// TODO
-		//return ctxhttp.Do(ctx, client.httpClient, req)
-	}
+	// TODO
+	// if ctx != nil {
+	// 	return ctxhttp.Do(ctx, client.httpClient, req)
+	// }
 	return client.httpClient.Do(req)
 }
 

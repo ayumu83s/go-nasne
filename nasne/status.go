@@ -1,6 +1,7 @@
 package nasne
 
 import (
+	"context"
 	"fmt"
 	"net/url"
 	"strconv"
@@ -8,7 +9,7 @@ import (
 
 type StatusService service
 
-func (s *StatusService) HDDListGet() (*HDDList, error) {
+func (s *StatusService) HDDListGet(ctx context.Context) (*HDDList, error) {
 	u := url.URL{
 		Scheme: s.client.baseURL.Scheme,
 		Host:   fmt.Sprintf("%s:64210", s.client.baseURL.Host),
@@ -28,7 +29,7 @@ func (s *StatusService) HDDListGet() (*HDDList, error) {
 	return &hddList, nil
 }
 
-func (s *StatusService) HDDInfoGet(id int) (*HDDInfo, error) {
+func (s *StatusService) HDDInfoGet(ctx context.Context, id int) (*HDDInfo, error) {
 	values := url.Values{}
 	values.Set("id", strconv.Itoa(id))
 	u := url.URL{
@@ -51,7 +52,7 @@ func (s *StatusService) HDDInfoGet(id int) (*HDDInfo, error) {
 	return &hddInfo, nil
 }
 
-func (s *StatusService) RecNgListGet() (*RecNgList, error) {
+func (s *StatusService) RecNgListGet(ctx context.Context) (*RecNgList, error) {
 	u := url.URL{
 		Scheme: s.client.baseURL.Scheme,
 		Host:   fmt.Sprintf("%s:64210", s.client.baseURL.Host),

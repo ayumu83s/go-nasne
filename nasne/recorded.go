@@ -1,6 +1,7 @@
 package nasne
 
 import (
+	"context"
 	"fmt"
 	"net/url"
 	"strconv"
@@ -18,7 +19,7 @@ type RecordedTitleListArgs struct {
 	WithUserData        int
 }
 
-func (s *RecordedService) TitleListGet(args *RecordedTitleListArgs) (*TitleList, error) {
+func (s *RecordedService) TitleListGet(ctx context.Context, args *RecordedTitleListArgs) (*TitleList, error) {
 	values := url.Values{}
 	values.Set("searchCriteria", strconv.Itoa(args.SearchCriteria))
 	values.Set("filter", strconv.Itoa(args.Filter))

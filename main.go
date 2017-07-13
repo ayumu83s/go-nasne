@@ -11,13 +11,13 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	hddList, err := apiClient.Status.HDDListGet()
+	hddList, err := apiClient.Status.HDDListGet(nil)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("HDDListGet:%+v\n", hddList)
 	for _, hdd := range hddList.Hdd {
-		hddInfo, err := apiClient.Status.HDDInfoGet(hdd.ID)
+		hddInfo, err := apiClient.Status.HDDInfoGet(nil, hdd.ID)
 		if err != nil {
 			panic(err)
 		}
@@ -26,13 +26,13 @@ func main() {
 	args := &nasne.RecordedTitleListArgs{
 		RequestedCount: 1,
 	}
-	titleList, err := apiClient.Recorded.TitleListGet(args)
+	titleList, err := apiClient.Recorded.TitleListGet(nil, args)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("TitleListGet:%+v\n", titleList)
 
-	recNgList, err := apiClient.Status.RecNgListGet()
+	recNgList, err := apiClient.Status.RecNgListGet(nil)
 	if err != nil {
 		panic(err)
 	}
