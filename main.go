@@ -31,4 +31,10 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("TitleListGet:%+v\n", titleList)
+
+	recNgList, err := apiClient.Status.RecNgListGet()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("ReqNgNum:%d\n", recNgList.Number)
 }

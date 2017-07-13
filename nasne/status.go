@@ -50,3 +50,23 @@ func (s *StatusService) HDDInfoGet(id int) (*HDDInfo, error) {
 	}
 	return &hddInfo, nil
 }
+
+func (s *StatusService) RecNgListGet() (*RecNgList, error) {
+	u := url.URL{
+		Scheme: s.client.baseURL.Scheme,
+		Host:   fmt.Sprintf("%s:64210", s.client.baseURL.Host),
+		Path:   "/status/recNgListGet",
+	}
+	fmt.Println(u.String())
+	res, err := s.client.Get(nil, u.String())
+	if err != nil {
+		return nil, err
+	}
+
+	var recNgList RecNgList
+	err = decodeBody(res, &recNgList)
+	if err != nil {
+		return nil, err
+	}
+	return &recNgList, nil
+}

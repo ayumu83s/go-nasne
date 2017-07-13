@@ -27,7 +27,7 @@ type HDDInfo struct {
 }
 
 type Genre struct {
-	Id   int
+	ID   int
 	Type int
 }
 
@@ -44,18 +44,18 @@ type ContainerSize struct {
 
 // Title is response
 type Title struct {
-	Id               string
+	ID               string
 	Title            string
 	Description      string
 	StartDateTime    string // 日時
 	Duration         int
-	ConditionId      string
+	ConditionID      string
 	Quality          int
 	ChannelName      string
 	ChannelNumber    int
 	BroadcastingType int
-	EerviceId        int
-	EventId          int
+	EerviceID        int
+	EventID          int
 	Genre            []Genre
 	AudioInfo        []Audio
 	CaptionInfo      int
@@ -63,8 +63,8 @@ type Title struct {
 	ProtectFlag      int
 	NewFlag          int
 	PlayCount        int
-	CreatorId        int
-	StorageId        int
+	CreatorID        int
+	StorageID        int
 	RecordingFlag    int
 	CopyControl      int
 	CopyCount        int
@@ -79,4 +79,35 @@ type TitleList struct {
 	Item           []Title
 	TotalMatches   int
 	NumberReturned int
+}
+
+type DesiredMatchingID struct {
+	NetworkID         int
+	TransportStreamID int
+	ServiceID         int
+	EventID           int
+}
+
+type RecNgItem struct {
+	ID                     string
+	ContentID              string
+	Title                  string
+	ScheduledStartDateTime string
+	ScheduledDuration      int
+	ScheduledConditionID   string
+	ScheduledChannelID     int
+	BroadcastingType       int
+	DesiredMatchingID      DesiredMatchingID
+	DesiredQualityMode     int
+	GenreIDNum             int
+	GenreID                []Genre
+	ReservationCreatorID   int
+	RecordDestinationID    int
+	NgID                   int
+}
+
+type RecNgList struct {
+	Errorcode int
+	Number    int
+	Item      []RecNgItem
 }
