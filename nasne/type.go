@@ -1,10 +1,14 @@
 package nasne
 
 type Hdd struct {
-	ID              int
-	InternalFlag    int
-	MountStatus     int
-	RegisterFlag    int
+	ID           int
+	InternalFlag int
+	MountStatus  int
+	RegisterFlag int
+}
+
+type HddDetail struct {
+	Hdd
 	Format          string
 	Name            string
 	VendorID        string
@@ -23,7 +27,7 @@ type HDDList struct {
 
 type HDDInfo struct {
 	Errorcode int
-	Hdd       Hdd
+	Hdd       HddDetail
 }
 
 type Genre struct {
