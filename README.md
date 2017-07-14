@@ -18,7 +18,7 @@ hddList, err := apiClient.Status.HDDListGet(nil)
 ### HDDの詳細取得 ###
 /status/HDDInfoGet
 ```go
-hddInfo, err := apiClient.Status.HDDInfoGet(hddList[0].ID)
+hddInfo, err := apiClient.Status.HDDInfoGet(nil, hddList[0].ID)
 ```
 * hddInfo.HDD.UsedVolumeSize: 使用量
 * hddInfo.HDD.FreeVolumeSize: 空き容量
@@ -27,8 +27,10 @@ hddInfo, err := apiClient.Status.HDDInfoGet(hddList[0].ID)
 ### 録画失敗の一覧取得 ###
 /status/RecNgListGet
 ```go
-recNgList, err := apiClient.Status.RecNgListGet()
+recNgList, err := apiClient.Status.RecNgListGet(nil)
 ```
+* recNgList.Number: 録画失敗件数
+
 
 ### 録画済みタイトル一覧取得 ###
 /recorded/TitleListGet
