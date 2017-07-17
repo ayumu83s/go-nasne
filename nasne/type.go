@@ -14,9 +14,9 @@ type HddDetail struct {
 	VendorID        string
 	ProductID       string
 	SerialNumber    string
-	UsedVolumeSize  int
-	FreeVolumeSize  int
-	TotalVolumeSize int
+	UsedVolumeSize  uint64
+	FreeVolumeSize  uint64
+	TotalVolumeSize uint64
 }
 
 type HDDList struct {
