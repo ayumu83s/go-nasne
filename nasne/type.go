@@ -41,9 +41,9 @@ type Audio struct {
 }
 
 type ContainerSize struct {
-	Main   int
-	Mobile int
-	Thumb  int
+	Main   uint64
+	Mobile uint64
+	Thumb  uint64
 }
 
 // Title is response
